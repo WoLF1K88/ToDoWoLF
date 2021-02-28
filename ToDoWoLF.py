@@ -1,24 +1,22 @@
+open("todo.txt", "r+")
 todos =[]#пустой список дел
-
 menu = "1. Print \n" \
        "2. Add \n" \
        "3. Change \n" \
        "4. Delete \n" \
        "0. Exit"
 def print_todos():
-	print(*todos, sep = "\n")#печатать список
-   
+		for i, text in enumerate(todos):
+			print(i + 1, text)
+	#	print(*todos, sep ='\n')#печатать список по строчно. * распаковывает аргументы построчно
+   	 
 def add_todo():
-        text = input("Введите задачу:" )#добавление задачи
         todos.append(text)
 
 def change_todo():
-    	x = int(input('введите номер задачи, которую хотите заменить: '))
-    	text = input('введите новую задачу: ')
     	todos[x-1] = text
 	
 def delete_todo():
-        x = int(input('введите номер задачи, которую хотите удалить: '))
         todos.pop(x-1)
 	
 print ('Welcome in ToDo!')  
@@ -31,19 +29,21 @@ while True:
     elif command == "1":
             print_todos()
     elif command == "2":
+            text = input("Введите задачу:" )#добавление задачи
             add_todo()
     elif command == '3':
+        	x = int(input('введите номер задачи, которую хотите заменить: '))
+        	text = input('введите новую задачу: ')
         	change_todo()
     elif command == '4':
+            x = int(input('введите номер задачи, которую хотите удалить: '))
             delete_todo()
     elif command =='0':
        	break
        
        
        
-#def delete_todo(index):
-#    x = int(input('введите номер задачи, которую хотите удалить: '))
-#	todos[x-1] = ''
+
 	
 
 
